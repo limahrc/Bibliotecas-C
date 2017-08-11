@@ -1,10 +1,6 @@
 #include "lista.h"
 #include <string.h>
 
-#define null_ptr_msg \
-	printf("O endereço de memória referenciado está vazio.\n");
-#define console_test_message \
-	printf("Até aqui, tudo OK.\n");
 
 node* novo(void *dado){
 	node *novo = (node*) calloc(1, sizeof(node));
@@ -20,14 +16,13 @@ node* ultimo(lista l){
   return NULL;
 }
 
-void insfim(lista *l, void *dado){
+void insfim(lista *l, node* novo){
 	if(l!=NULL){
-		node *no = novo(dado);
-  	if(*l==NULL) *l = no;
+  	if(*l==NULL) *l = novo;
    	else {
   		node *aux = *l;
   		aux = ultimo(*l);
-  		aux->prox = no;
+  		aux->prox = novo;
   	}
   } else null_ptr_msg;
 }
@@ -55,7 +50,7 @@ lista novalista(int ndados, ...){
 }
 
 void mostra(lista l, char* tipo){
-  if(l == NULL) null_ptr_msg
+  if(l == NULL) null_ptr_msg;
   else {
     if( (strcmp(tipo, "int") == 0 )){
         while(l!=NULL){
@@ -77,4 +72,15 @@ void mostra(lista l, char* tipo){
     }
     else printf("Tipo de dado não suportado. Considere criar uma função exclusiva para este tipo.\n");
   }
+}
+
+void desfazlista(lista *l) {
+	node* aux = NULL;
+	while((*l)->prox!=NULL){
+		aux = *l;
+		*l = (*l)->prox;
+		free(aux);
+	}
+	free(*l);
+	*l = NULL; //Só pra garantir
 }

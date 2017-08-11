@@ -8,7 +8,7 @@
 #include <stdarg.h>
 
 /*
-	BIBLIOTECA DE FUNÇÕES PARA LISTAS DUPLAMENTE ENCADEADAS DE DADOS GENÉRICOS
+	BIBLIOTECA DE FUNÇÕES PARA LISTAS SIMPLESMENTE ENCADEADAS DE DADOS GENÉRICOS
 	AUTOR: HERICK LIMA NUNES
 	EMAIL: LIMAHRC@GMAIL.COM
 	ENGENHARIA DE COMPUTAÇÃO
@@ -22,8 +22,13 @@ typedef node* lista;
 
 struct no {
 	void *info;
-	node *prox, *ant;
+	node *prox;
 };
+
+#define null_ptr_msg \
+	printf("O endereço de memória referenciado está vazio.\n")
+#define console_test_message \
+	printf("Até aqui, tudo OK.\n")
 
 /*
 * Aloca um novo nó e retorna um ponteiro para o mesmo.
@@ -49,7 +54,7 @@ struct no {
 * como parâmetro.
 * @l: lista na qual se deseja inserir
 * @novo: ponteiro para o nó o qual se deseja inserir
-*/ void insfim(lista *l, void *dado);
+*/ void insfim(lista *l, node* novo);
 
 /*
 * Obtém o endereço do último nó da lista.
@@ -62,5 +67,9 @@ struct no {
 * pela função. Os tipos padrão são: int float e string
 */ void mostra(lista l, char* tipo);
 
+/*
+* Percorre a lista desalocando seus nós da memória.
+* @l: endereço da lista que se deseja desfazer
+*/ void desfazlista(lista *l);
 
 #endif
