@@ -20,11 +20,6 @@
 typedef struct no node;
 typedef node* lista;
 
-struct no {
-	void *info;
-	node *prox;
-};
-
 #define null_ptr_msg \
 	printf("O endereço de memória referenciado está vazio.\n")
 #define console_test_message \
@@ -41,6 +36,26 @@ struct no {
 * @ndados: quantidade de elementos/parâmetros que serão passados
 */ lista novalista(int ndados, ...);
 
+/*
+*	Obtém o endereço de memória de objeto armazenado no nó
+*	passado como parâmetro.
+*/ void* getinfo(node* n)
+
+/*
+* Define a informação armazenada (ponteiro) no nó parâmetro e
+* retorna true se a operação for bem sucedida ou false, caso contrário.
+* @info: endereço do objeto que se deseja armazenar
+*/ bool setinfo(node* n, void* info)
+
+/*
+* Obtém o endereço do próximo nó ligado ao nó parâmetro.
+*/ node* getprox(node* n)
+
+/*
+* Define o endereço do próximo nó ligado ao nó parâmetro.
+* retorna true se @n puder apontar para @m corretamente
+* ou retorna false, caso contrário
+*/ bool setprox(node* n, node* m)
 
 /*
 * Insere um novo nó no início da lista passada

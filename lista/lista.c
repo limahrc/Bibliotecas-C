@@ -1,6 +1,11 @@
 #include "lista.h"
 #include <string.h>
 
+struct no {
+	void *info;
+	node *prox;
+};
+
 
 node* novo(void *dado){
 	node *novo = (node*) calloc(1, sizeof(node));
@@ -83,4 +88,32 @@ void desfazlista(lista *l) {
 	}
 	free(*l);
 	*l = NULL; //Só pra garantir
+}
+
+void* getinfo(node* n){
+	if(n!=NULL){
+		return n->info;
+	}
+}
+
+bool setinfo(node* n, void* info){
+	if(n!=NULL){
+		n->info = info;
+		return true;
+	}
+	else return false;
+}
+
+node* getprox(node* n){
+	if(n!=NULL){
+		return n->prox;
+	}
+}
+
+bool setprox(node* n, node* m){
+	if(n!=NULL){
+		n->prox = m;
+		return true;
+	}
+	else return false;
 }
