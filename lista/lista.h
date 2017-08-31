@@ -39,23 +39,23 @@ typedef node* lista;
 /*
 *	Obtém o endereço de memória de objeto armazenado no nó
 *	passado como parâmetro.
-*/ void* getinfo(node* n)
+*/ void* getinfo(node* n);
 
 /*
 * Define a informação armazenada (ponteiro) no nó parâmetro e
 * retorna true se a operação for bem sucedida ou false, caso contrário.
 * @info: endereço do objeto que se deseja armazenar
-*/ bool setinfo(node* n, void* info)
+*/ bool setinfo(node* n, void* info);
 
 /*
 * Obtém o endereço do próximo nó ligado ao nó parâmetro.
-*/ node* getprox(node* n)
+*/ node* getprox(node* n);
 
 /*
 * Define o endereço do próximo nó ligado ao nó parâmetro.
 * retorna true se @n puder apontar para @m corretamente
 * ou retorna false, caso contrário
-*/ bool setprox(node* n, node* m)
+*/ bool setprox(node* n, node* m);
 
 /*
 * Insere um novo nó no início da lista passada
@@ -81,6 +81,19 @@ typedef node* lista;
 * @tipo: string que define o tipo de dado que será exibido
 * pela função. Os tipos padrão são: int float e string
 */ void mostra(lista l, char* tipo);
+
+
+/*
+*	Busca na lista um elemento e retorna seu endereço
+*	@l: lista na qual se busca
+*	@dado: informação do nó que se deseja buscar
+*/ node* busca(lista l, void* dado);
+
+/*
+*	Remove um nó da lista
+*	@l: lista na qual se busca
+*	@dado: informação do nó que se deseja remover
+*/ void remover(lista l, void *dado);
 
 /*
 * Percorre a lista desalocando seus nós da memória.

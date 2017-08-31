@@ -21,6 +21,14 @@ node* ultimo(lista l){
   return NULL;
 }
 
+node* anterior(lista l, node* n){
+	if (l!=NULL) {
+		while(l->prox!=n) l = l->prox;
+		return l;
+	}
+	return NULL;
+}
+
 void insfim(lista *l, node* novo){
 	if(l!=NULL){
   	if(*l==NULL) *l = novo;
@@ -40,6 +48,31 @@ void insini(lista *l, node *novo){
   		*l = novo;
   	}
   } else null_ptr_msg;
+}
+
+static bool contem(lista l, void *dado){
+	while(l != NULL){
+		if(l->info == dado) return true;
+		l = l->prox;
+	}
+	return false;
+}
+
+node* busca(lista l, void* dado){
+	while (l!=NULL) {
+		if (l->info == dado) return l;
+		l = l->prox;
+	}
+	return NULL;
+}
+
+void remover(lista l, void *dado) {
+	node* aux = busca(l, dado);
+	if (aux != NULL){
+		node* ant = anterior(l, aux);
+		ant->prox = aux->prox;
+		free(aux);
+	}
 }
 
 lista novalista(int ndados, ...){
