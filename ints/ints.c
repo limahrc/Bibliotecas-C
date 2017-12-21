@@ -47,6 +47,31 @@ int* vecsum(int *vec1, int *vec2, int tam){
 	return c;
 }
 
+int** fillmtx(int lines, int collumns, int lowerbound, int upperbound){
+    int** m = (int**) calloc(lines, sizeof(int*));
+    int i, j;
+    for (i=0; i<lines; i++){
+        m[i] = (int*) calloc(collumns, sizeof(int));
+    }
+    srand((unsigned)time(NULL));
+    for (i=0; i<lines; i++){
+        for (j=0; j<collumns; j++){
+        m[i][j] = lowerbound+rand()%upperbound;
+        }
+    }
+    return m;
+}
+
+void printmtx(int** matrix, int lines, int collumns){
+	int i, j;
+	for (i=0; i<lines; i++){
+        for (j=0; j<collumns; j++){
+            printf("%i ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 bool isEven(int x){
   if(x%2==0) return true;
   else return false;

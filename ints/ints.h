@@ -23,13 +23,13 @@ typedef node* lint;
 * Identifica qual é o elemento de maior valor em um vetor
 * @vec: vetor no qual se deseja atuar
 * @len: tamanho do vetor
-*/ int hvalue(int *vec, int tam);
+*/ int hvalue(int* vec, int tam);
 
 /*
 * Identifica qual é o elemento de menor valor em um vetor
 * @vec: vetor no qual se deseja atuar
 * @tam: tamanho do vetor
-*/ int lvalue(int *vec, int tam);
+*/ int lvalue(int* vec, int tam);
 
 /*
 * Preenche um vetor com números aleatórios dentro de um limite
@@ -41,15 +41,31 @@ typedef node* lint;
 
 /*
 * Imprime na tela um vetor
-*/ void printvec(int *vec, int tam);
+*/ void printvec(int* vec, int tam);
 
 /*
 * Cria um vetor C resultante da soma de dois vetores, vec1 e vec2
-*/ int* vecsum(int *vec1, int *vec2, int tam);
+*/ int* vecsum(int* vec1, int* vec2, int tam);
 
 /*
 * Verifica se um número é par
 */ bool isEven(int x);
+
+/*
+* Aloca e preenche uma matriz com números aleatórios dentro de um limite
+* informado pelo usuário.
+* @lines: número de linhas da matriz
+* @collumns: número de colunas da matriz
+* @lowerbound: número mínimo do qual os elementos podem variar
+* @upperbound: número máximo do qual os elementos podem variar
+*/ int** fillmtx(int lines, int collumns, int lowerbound, int upperbound);
+
+/*
+* Imprime uma matriz na tela
+* @matrix: matriz que se deseja imprimir
+* @lines: número de linhas da matriz
+* @collumns: número de colunas da matriz
+*/ void printmtx(int** matrix, int lines, int collumns);
 
 /*
 * Prepara a lista para ser montada (ainda sem corpo).
@@ -73,25 +89,25 @@ typedef node* lint;
 * como parâmetro.
 * @l: lista na qual se deseja inserir
 * @novo: ponteiro para o nó o qual se deseja inserir
-*/ void insend(lint *l, node* novo);
+*/ void insend(lint* l, node* novo);
 
 /*
 * Insere um novo nó no início da lista passada
 * como parâmetro.
 * @l: lista na qual se deseja inserir
 * @novo: ponteiro para o nó o qual se deseja inserir
-*/ void instop(lint *l, node *novo);
+*/ void instop(lint* l, node *novo);
 
 /*
 * Cria uma lista a partir de um vetor parâmetro.
   @vec: vetor de inteiros
   @size: tamanho do vetor
-*/ lint insvec(int *vec, int size);
+*/ lint insvec(int* vec, int size);
 
 /*
 * Percorre a lista desalocando seus nós da memória.
 * @l: endereço da lista que se deseja desfazer
-*/ void unmake(lint *l);
+*/ void unmake(lint* l);
 
 /*
 *	Obtém o endereço de memória de objeto armazenado no nó
