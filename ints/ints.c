@@ -105,13 +105,14 @@ static node* previous(lint l, node* n){
 
 void insend(lint *l, node* novo){
 	if(l!=NULL){
-  	if(*l==NULL) *l = novo;
-   	else {
-  		node *aux = *l;
-  		aux = last(*l);
-  		aux->prox = novo;
-  	}
-  } else null_ptr_msg;
+  		if(*l==NULL) {
+  			*l = novo;
+  		} else {
+			node *aux = *l;
+			aux = last(*l);
+			aux->prox = novo;
+  		}
+  	} else null_ptr_msg;
 }
 
 void instop(lint *l, node *novo){
